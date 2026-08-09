@@ -51,4 +51,4 @@ def calculate_love_score(name1, name2):
     second_digit = l + o + v + e # 1+1+1+1 e(from True) = 5
     love_score = str(first_digit) + str(second_digit)
     print(f"Your love score is: {love_score}")
-calculate_love_score("true", "love")
+calculate_love_score("Nabin", "Timalsina")
