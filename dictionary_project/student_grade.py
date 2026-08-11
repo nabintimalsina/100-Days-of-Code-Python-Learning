@@ -6,15 +6,15 @@ student_scores = {
     'Neville': 60
 }
 
-sudent_grade = {}
-for student in student_scores:
-    
-        if student range(91,100):
-            print("Outstanding")
-        elif student range (81,90):
-            print("Exceeds Expectations")
-        elif student range(71,80):
-            print("Acceptable")
-        else:
-            print("Fail")
-            
+student_grade = {}
+for key, value in student_scores.items():
+    if value in range(91, 101):
+        student_grade[key] = "Outstanding"
+    elif value in range(81, 91):
+        student_grade[key] = "Exceeds Expectations"
+    elif value in range(71, 81):
+        student_grade[key] = "Acceptable"
+    else:
+        student_grade[key] = "Fail"
+
+print(f"Student Grades: {student_grade} \n")
