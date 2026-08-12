@@ -7,8 +7,27 @@
 # from Function_Project import art
 # print(art.logo)
 
-name = input("Enter you name who wants to bid: ")
-bid = int(input("Enter your bid amount: $ "))
+bids = {}
 
-winner = {name: bid}
-print(winner)
+while True:
+    name = input("Enter your name who wants to bid: ")
+    try:
+        bid = int(input("Enter your bid amount: $ "))
+    except ValueError:
+        print("Please enter a valid number for the bid.")
+        continue
+
+    bids[name] = bid
+
+    more = input("Are there any other bidders? Type 'yes' or 'no': ").strip().lower()
+    if more == 'no':
+        break
+    # simple way to hide previous bids
+    print("\n" * 50)
+
+# determine        
+if bids:
+    winner = max(bids, key=bids.get)
+    print(f"The winner is {winner} with a bid of ${bids[winner]}")
+else:
+    print("No bids were placed.")
