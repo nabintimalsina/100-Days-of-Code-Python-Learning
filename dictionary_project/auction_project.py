@@ -4,30 +4,25 @@
 # for their details. If they say "no", the auction is over, and we look through all the bids 
 # to find the biggest one and announce the winner.
 #=========================================================================================
-# from Function_Project import art
-# print(art.logo)
 
-bids = {}
+bids = {}  #create an empty dictionary to store the bids
+biding_finished = False #create a boolean variable to control the while loop
+while not biding_finished: #start the while loop where bidding is not finished
+    name = input("Enter your name who wants to bid: ") #take the name of the bidder as input
+    bid = int(input("Enter your bid amount: $ "))  #take the bid amount as input and convert it to an integer
+    bids[name] = bid #store the information into the blank dictionary with the name as the key and the bid amount as the value
+    should_continue = input("Are there any other bidders? Type 'yes' or 'no': ").lower()
+    #if no then printing the winner and the bid amount, if yes then clearing the screen by printing 50 new lines to hide the previous bids from the next bidder
+    if should_continue == "no": 
+         biding_finished = True
+         winner = max(bids, key=bids.get)
+         print(f"The winner is {winner} with a bid of ${bids[winner]}")
+         #clear the screen  by printing 50 new lines to hide the previous bids from the next bidder
+    elif should_continue == "yes":
+        print("\n" * 50)
 
-while True:
-    name = input("Enter your name who wants to bid: ")
-    try:
-        bid = int(input("Enter your bid amount: $ "))
-    except ValueError:
-        print("Please enter a valid number for the bid.")
-        continue
 
-    bids[name] = bid
 
-    more = input("Are there any other bidders? Type 'yes' or 'no': ").strip().lower()
-    if more == 'no':
-        break
-    # simple way to hide previous bids
-    print("\n" * 50)
 
-# determine        
-if bids:
-    winner = max(bids, key=bids.get)
-    print(f"The winner is {winner} with a bid of ${bids[winner]}")
-else:
-    print("No bids were placed.")
+
+
