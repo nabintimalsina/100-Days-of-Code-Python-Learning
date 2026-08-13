@@ -5,6 +5,7 @@
 # to find the biggest one and announce the winner.
 #=========================================================================================
 
+
 bids = {}  #create an empty dictionary to store the bids
 biding_finished = False #create a boolean variable to control the while loop
 while not biding_finished: #start the while loop where bidding is not finished
@@ -14,9 +15,10 @@ while not biding_finished: #start the while loop where bidding is not finished
     should_continue = input("Are there any other bidders? Type 'yes' or 'no': ").lower()
     #if no then printing the winner and the bid amount, if yes then clearing the screen by printing 50 new lines to hide the previous bids from the next bidder
     if should_continue == "no": 
-         biding_finished = True
-         winner = max(bids, key=bids.get)
-         print(f"The winner is {winner} with a bid of ${bids[winner]}")
+         biding_finished = True  #If we flip this to True, the next time the while loop goes back to the top to check its rule, it will see the bidding is finished, and the loop will finally stop.
+         winner = max(bids, key=bids.get) #bids.get: A built-in dictionary method that takes a key (like "Bob") and returns its value (80).
+         #winner: Holds "Bob". bids[winner]: Accesses the value assigned to "Bob" inside the bids dictionary (80).
+         print(f"The winner is {winner} with a bid of ${bids[winner]}") 
          #clear the screen  by printing 50 new lines to hide the previous bids from the next bidder
     elif should_continue == "yes":
         print("\n" * 50)
