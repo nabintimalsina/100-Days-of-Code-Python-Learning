@@ -7,7 +7,7 @@ while operator not in ["+", "-", "*", "/","%"]:
     operator = input("Which operation would you like to perform? (+, -, *, /, %): ")
 continue_calculation = input("Do you want to perform another calculation? Type 'yes' or 'no': ").lower()
 should_continue = True
-while should_continue:
+while should_continue and continue_calculation == "yes":
     def add(n1, n2):
         if operator == "+":
             return n1 + n2
