@@ -1,3 +1,4 @@
+import arts
 def add(n1,n2):
     return n1 + n2
 def subtract(n1,n2):
@@ -19,6 +20,7 @@ operations = {
 # result = operations["*"](n1=4, n2=8)
 # print(result)should_accumulate ==True
 def calculator():
+    print(arts.logo)
     should_accumulate = True
     num1 = float(input("Enter the first number: "))
     while should_accumulate:
